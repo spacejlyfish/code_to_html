@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Display</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        pre {
+            background-color: #e8e8e8;
+            padding: 20px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <pre id="code"></pre>
+    <script>
+        fetch('code.py')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('code').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error fetching the code:', error);
+            });
+    </script>
+</body>
+</html>
